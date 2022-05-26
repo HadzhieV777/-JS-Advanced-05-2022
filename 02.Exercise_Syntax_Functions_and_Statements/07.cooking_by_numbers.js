@@ -1,31 +1,17 @@
 function numbersCoocker(n, ...params) {
     let number = Number(n)
     const iterator = params.values();
+    const parser = {
+            chop() {number /= 2},
+            dice() {number = Math.sqrt(number)},
+            spice() {number += 1},
+            bake() {number *= 3 },
+            fillet() {number -= number * 0.20},
+    }
 
     for (const command of iterator) {
-
-        switch (command) {
-            case 'chop':
-                number /= 2;
-                console.log(number)
-                break;
-            case 'dice':
-                number = Math.sqrt(number)
-                console.log(number)
-                break;
-            case 'spice':
-                number += 1
-                console.log(number)
-                break;
-            case 'bake':
-                number *= 3 
-                console.log(number)
-                break;
-            case 'fillet':
-                number -= number * 0.20; 
-                console.log(number)
-                break;    
-        }
+        parser[command]()
+        console.log(number)
     }
 
 
