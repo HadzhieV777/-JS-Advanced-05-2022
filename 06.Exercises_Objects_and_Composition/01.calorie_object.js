@@ -1,15 +1,10 @@
 function calorieObject(arr) {
   let result = {};
 
-  for (let i = 0; i < arr.length; i += 2) {
-    let product = arr[i];
-    let calories = Number(arr[i + 1]);
-
-    if (calories === undefined) {
-      break;
-    }
-
-    result[product] = calories;
+  while (arr.length !== 0) {
+    let product = arr.shift();
+    let calories = arr.shift();
+    result[product] = Number(calories);
   }
   console.log(result);
 }
