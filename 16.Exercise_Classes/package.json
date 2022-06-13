@@ -1,0 +1,22 @@
+{
+  "name": "-js-advanced-05-2022",
+  "version": "1.0.0",
+  "description": "Course Objectives   ▪ Extends the JS Fundamentals course   ▪ Advanced coding skills for the JS language   ▪ Use contemporary techniques and paradigms   ▪ Master the DOM API and user interaction   ▪ Write code to solve realistic practical problems",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HadzhieV777/-JS-Advanced-05-2022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HadzhieV777/-JS-Advanced-05-2022/issues"
+  },
+  "homepage": "https://github.com/HadzhieV777/-JS-Advanced-05-2022#readme",
+  "dependencies": {
+    "chai": "^4.3.6"
+  }
+}
