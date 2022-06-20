@@ -1,9 +1,11 @@
-const {expect} = require('chai');
-const {companyAdministration} = require('./solution')
+const { expect } = require("chai");
+const { companyAdministration } = require("./solution");
 
+describe("Tests …", function () {
+  describe("TODO …", function () {
+    it("TODO …", function () {
+      // TODO: …
+    });
+  });
 
-describe('companyAdministration function', () => {
-    describe('TODO', () => {
-        // TODO
-    })
-})
+});
