@@ -64,9 +64,13 @@ class ChristmasDinner {
     for (let guest in this.guests) {
       let dish = this.guests[guest];
       let { productsList } = this.dishes.find((d) => d.recipeName === dish);
-      guestList.push(`${guest} will eat ${dish}, which consists of ${productsList.join(', ')}`)
+      guestList.push(
+        `${guest} will eat ${dish}, which consists of ${productsList.join(
+          ", "
+        )}`
+      );
     }
-    return guestList.join('\n');
+    return guestList.join("\n");
   }
 }
 
@@ -80,3 +84,40 @@ console.log(
     productsList: ["Fruits", "Honey"],
   })
 );
+
+// Input
+let plate = new ChristmasDinner(300);
+
+plate.shopping(["Salt", 1]);
+plate.shopping(["Beans", 3]);
+plate.shopping(["Cabbage", 4]);
+plate.shopping(["Rice", 2]);
+plate.shopping(["Savory", 1]);
+plate.shopping(["Peppers", 1]);
+plate.shopping(["Fruits", 40]);
+plate.shopping(["Honey", 10]);
+
+plate.recipes({
+  recipeName: "Oshav",
+  productsList: ["Fruits", "Honey"],
+});
+plate.recipes({
+  recipeName: "Folded cabbage leaves filled with rice",
+  productsList: ["Cabbage", "Rice", "Salt", "Savory"],
+});
+plate.recipes({
+  recipeName: "Peppers filled with beans",
+  productsList: ["Beans", "Peppers", "Salt"],
+});
+
+plate.inviteGuests("Ivan", "Oshav");
+plate.inviteGuests("Petar", "Folded cabbage leaves filled with rice");
+plate.inviteGuests("Georgi", "Peppers filled with beans");
+
+console.log(plate.showAttendance());
+
+
+// Output
+// Ivan will eat Oshav, which consists of Fruits, Honey
+// Petar will eat Folded cabbage leaves filled with rice, which consists of Cabbage, Rice, Salt, Savory
+// Georgi will eat Peppers filled with beans, which consists of Beans, Peppers, Salt
