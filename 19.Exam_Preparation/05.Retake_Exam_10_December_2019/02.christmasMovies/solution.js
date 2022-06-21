@@ -80,3 +80,5 @@ class ChristmasMovies {
     }
   }
 }
+
+module.exports = { ChristmasMovies };
