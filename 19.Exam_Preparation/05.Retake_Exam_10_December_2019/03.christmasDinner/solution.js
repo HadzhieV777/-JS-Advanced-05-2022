@@ -30,33 +30,45 @@ class ChristmasDinner {
     return `You have successfully bought ${type}!`;
   }
 
-  recipes(recipe) {
-    let allProductsAvailable = true;
+  recipes({ recipeName, productsList }) {
+    if (productsList.every((x) => this.products.includes(x))) {
+      this.dishes.push({ recipeName, productsList });
+      return `${recipeName} has been successfully cooked!`;
+    }
+    throw new Error("We do not have this product");
+  }
 
-    for (let product of recipe.productsList) {
-      if (this.products.indexOf(product) === -1) {
-        allProductsAvailable = false;
+  inviteGuests(name, dish) {
+    let dishAvailable = false;
+    
+    for (let d of this.dishes) {
+      if (d.recipeName === dish) {
+        dishAvailable = true;
       }
     }
 
-    if (!allProductsAvailable) {
-      throw new Error("We do not have this product");
+    if (!dishAvailable) {
+      throw new Error("We do not have this dish");
     }
 
-    this.dishes.push(recipe);
-    return `${recipe.recipeName} has been successfully cooked!`;
-  }
+    if (this.guests.hasOwnProperty(name)) {
+      throw new Error("This guest has already been invited");
+    }
 
-  inviteGuests(name, dish) {}
+    this.guests[name] = dish;
+    return `You have successfully invited ${name}!`;
+  }
 
   showAttendance() {}
 }
 
 let dinner = new ChristmasDinner(300);
-console.log(dinner.shopping(['Fruits', 1]))
-console.log(dinner.shopping(['Honey', 1]))
+console.log(dinner.shopping(["Fruits", 1]));
+console.log(dinner.shopping(["Honey", 1]));
 
-console.log(dinner.recipes({
-    recipeName: 'Oshav',
-    productsList: ['Fruits', 'Honey']
-}));
+console.log(
+  dinner.recipes({
+    recipeName: "Oshav",
+    productsList: ["Fruits", "Honey"],
+  })
+);
