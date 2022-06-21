@@ -40,7 +40,7 @@ class ChristmasDinner {
 
   inviteGuests(name, dish) {
     let dishAvailable = false;
-    
+
     for (let d of this.dishes) {
       if (d.recipeName === dish) {
         dishAvailable = true;
@@ -59,7 +59,15 @@ class ChristmasDinner {
     return `You have successfully invited ${name}!`;
   }
 
-  showAttendance() {}
+  showAttendance() {
+    let guestList = [];
+    for (let guest in this.guests) {
+      let dish = this.guests[guest];
+      let { productsList } = this.dishes.find((d) => d.recipeName === dish);
+      guestList.push(`${guest} will eat ${dish}, which consists of ${productsList.join(', ')}`)
+    }
+    return guestList.join('\n');
+  }
 }
 
 let dinner = new ChristmasDinner(300);
