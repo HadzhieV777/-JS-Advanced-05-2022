@@ -1,0 +1,3 @@
+class ChristmasDinner {
+    // TODO: implement this class...
+}
