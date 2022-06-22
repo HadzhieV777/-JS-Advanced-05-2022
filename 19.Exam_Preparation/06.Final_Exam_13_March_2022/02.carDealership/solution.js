@@ -6,7 +6,23 @@ class CarDealership {
     this.totalIncome = 0;
   }
 
-  addCar(model, horsepower, price, mileage) {}
+  addCar(model, horsepower, price, mileage) {
+    // Validate args
+    if (model === "" || horsepower < 0 || price < 0 || mileage < 0) {
+      throw new Error("Invalid input!");
+    }
+
+    // Add car if valid
+    this.availableCars.push({
+      model,
+      horsepower,
+      price,
+      mileage,
+    });
+
+    // return
+    return `New car added: ${model} - ${horsepower} HP - ${mileage.toFixed(2)} km - ${price.toFixed(2)}$`
+  }
 
   sellCar(model, desiredMileage) {}
 
