@@ -1,4 +1,5 @@
 const { expect } = require("chai");
+const { rentCar } = require("./solution");
 
 describe("Tests …", function () {
   describe("TODO …", function () {
