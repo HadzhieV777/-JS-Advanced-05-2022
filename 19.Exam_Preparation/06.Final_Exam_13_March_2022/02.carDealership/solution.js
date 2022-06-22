@@ -5,6 +5,14 @@ class CarDealership {
     this.soldCars = [];
     this.totalIncome = 0;
   }
+
+  addCar(model, horsepower, price, mileage) {}
+
+  sellCar(model, desiredMileage) {}
+
+  currentCar() {}
+
+  salesReport(criteria) {}
 }
 
 // Input
