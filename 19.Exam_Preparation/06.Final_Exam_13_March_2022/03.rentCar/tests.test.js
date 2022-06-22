@@ -13,7 +13,10 @@ describe("rentCar object", () => {
         expect(() => rentCar.searchCar(["BMW", "Mercedes za mnogo palki"], "Audi")).to.throw('There are no such models in the catalog!')
     })
 
-    it("finds the desired car model and returns", () => {})
+    it("finds the desired car model and returns", () => {
+        expect(rentCar.searchCar(['Mercedes', "Audi"], "Audi")).to.equal('There is 1 car of model Audi in the catalog!')
+        expect(rentCar.searchCar(['Mercedes', "Audi", "Audi", "Audi","Audi","Audi"], "Audi")).to.equal('There is 5 car of model Audi in the catalog!')
+    })
   });
   
 });
