@@ -21,7 +21,9 @@ class CarDealership {
     });
 
     // return
-    return `New car added: ${model} - ${horsepower} HP - ${mileage.toFixed(2)} km - ${price.toFixed(2)}$`
+    return `New car added: ${model} - ${horsepower} HP - ${mileage.toFixed(
+      2
+    )} km - ${price.toFixed(2)}$`;
   }
 
   sellCar(model, desiredMileage) {}
