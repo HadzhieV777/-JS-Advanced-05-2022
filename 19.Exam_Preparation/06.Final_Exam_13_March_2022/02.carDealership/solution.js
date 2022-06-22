@@ -58,20 +58,28 @@ class CarDealership {
     return `${wantedCar.model} was sold for ${soldPrice.toFixed(2)}$`;
   }
 
-  currentCar() {}
+  currentCar() {
+    if (this.availableCars.length === 0) {
+      return "There are no available cars";
+    }
+
+    let cars = this.availableCars.map(c => `---${c.model} - ${c.horsepower} HP - ${c.mileage.toFixed(2)} km - ${c.price.toFixed(2)}$`)
+    return `-Available cars:\n${cars.join('\n')}`
+  }
 
   salesReport(criteria) {}
 }
 
 // Input
-let dealership = new CarDealership("SoftAuto");
-dealership.addCar("Toyota Corolla", 100, 3500, 190000);
-dealership.addCar("Mercedes C63", 300, 29000, 187000);
-dealership.addCar("Audi A3", 120, 4900, 240000);
-console.log(dealership.sellCar("Toyota Corolla", 230000));
-console.log(dealership.sellCar("Mercedes C63", 110000));
+let dealership = new CarDealership('SoftAuto');
+dealership.addCar('Toyota Corolla', 100, 3500, 190000);
+dealership.addCar('Mercedes C63', 300, 29000, 187000);
+dealership.addCar('Audi A3', 120, 4900, 240000);
+console.log(dealership.currentCar());
 
 // Output
 
-// Toyota Corolla was sold for 3500.00$
-// Mercedes C63 was sold for 26100.00$
+// -Available cars:
+// ---Toyota Corolla - 100 HP - 190000.00 km - 3500.00$
+// ---Mercedes C63 - 300 HP - 187000.00 km - 29000.00$
+// ---Audi A3 - 120 HP - 240000.00 km - 4900.00$
