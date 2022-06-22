@@ -1,4 +1,11 @@
-class CarDealership {}
+class CarDealership {
+  constructor(name) {
+    this.name = name;
+    this.availableCars = [];
+    this.soldCars = [];
+    this.totalIncome = 0;
+  }
+}
 
 // Input
 let dealership = new CarDealership("SoftAuto");
